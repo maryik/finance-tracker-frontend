@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Login from './components/Auth/Login/Login';
+import Home from './components/Home/Home';
+import Register from './components/Auth/Register/Register';
+import History from './components/History/History';
+import Goals from './components/Goals/Goals';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [token, setToken] = useState(localStorage.getItem('token'));
+
+    useEffect(() => {
+        const handleStorageChange = () => {
+            setToken(localStorage.getItem('token'));
+        };
+        window.addEventListener('storage', handleStorageChange);
+
+        return () => window.removeEventListener('storage', handleStorageChange);
+    }, []);
+
+    return (
+        <Router>
+            <Routes>
+                <Route path="/register" element={<Register />} />
+                <Route path="/login" element={<Login setToken={setToken} />} />
+                <Route path="/history" element={<History />} />
+                <Route path="/goals" element={<Goals />} />
+                <Route path="/" element={token ? <Home /> : <Navigate to="/login" />} />
+            </Routes>
+        </Router>
+    );
+};
 
 export default App;

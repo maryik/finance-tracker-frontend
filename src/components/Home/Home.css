@@ -1,0 +1,166 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Игривый шрифт */
+    position: relative; /* Устанавливаем позицию для родителя */
+}
+
+body::before {
+    content: '';
+    position: fixed; /* Фиксируем на весь экран */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../pct/background.png'); /* Задний фон */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1; /* Устанавливаем под содержимым */
+}
+
+body::after {
+    content: '';
+    position: fixed; /* Фиксируем на весь экран */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+    z-index: -1; /* Устанавливаем под содержимым */
+}
+
+
+.home-container {
+    width:100%; /* Увеличенная ширина */
+    height: 50%; /* Уменьшенная высота */
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 10);
+    text-align: center;
+    color: #333; /* Темно-серый текст */
+    animation: fadeIn 0.5s ease; /* Анимация при появлении */
+    position: relative;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.menu-icon {
+    cursor: pointer;
+    font-size: 30px;
+    margin: 10px; /* Отступ для иконки меню */
+    position: absolute; /* Позиционирование для перемещения влево */
+    left: 20px; /* Отступ слева */
+    top: 5px; /* Отступ сверху, можно изменить при необходимости */
+    z-index: 1000; /* Обеспечивает, что иконка находится поверх других элементов */
+}
+
+.dropdown-menu {
+    position: absolute; /* Абсолютное позиционирование для выпадающего меню */
+    background-color: rgba(255, 255, 255, 0.9); /* Полупрозрачный фон */
+    border: 1px solid #ccc; /* Граница для меню */
+    border-radius: 4px; /* Скруглённые углы */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Тень для меню */
+    z-index: 999; /* Поверх других элементов, но под иконкой */
+    display: none; /* Скрываем меню по умолчанию */
+    left: 20px; /* Устанавливаем отступ слева под иконкой */
+    top: 50px; /* Устанавливаем отступ сверху, чтобы меню находилось прямо под иконкой */
+}
+
+.dropdown-menu.show {
+    display: block; /* Показываем меню при добавлении класса show */
+}
+
+.dropdown-menu ul {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 10px; /* Отступы внутри меню */
+    margin: 0; /* Убираем внешние отступы */
+}
+
+.dropdown-menu li {
+    padding: 8px 12px; /* Отступы для пунктов меню */
+    cursor: pointer; /* Указатель при наведении */
+}
+
+.dropdown-menu li:hover {
+    background-color: #f0f0f0; /* Цвет фона при наведении */
+}
+
+.balance-container {
+    margin: 2rem 0;
+    padding: 2rem;
+    border-radius: 16px;
+    background: rgba(104, 225, 108, 0.9);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.balance-title {
+    font-size: 36px;
+    color: #388E3C;
+    margin-bottom: 1rem;
+    animation: bounce 1s infinite; /* Плавная анимация заголовка */
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+.balance-amount {
+    font-size: 48px;
+    font-weight: bold;
+    color: #388E3C;
+}
+
+.message {
+    font-size: 20px;
+    color: #F44336;
+    margin: 1rem 0;
+}
+
+.budget-form {
+    margin: 2rem 0;
+}
+
+.budget-input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #388E3C;
+    font-size: 18px;
+    margin-right: 10px;
+    transition: border-color 0.3s; /* Плавный переход для границы */
+}
+
+.budget-input:focus {
+    border-color: #2E7D32; /* Темная граница при фокусе */
+    outline: none; /* Убираем стандартный обвод */
+}
+
+.button {
+    padding: 12px 24px;
+    border-radius: 30px;
+    border: none;
+    background-color: #388E3C;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    font-size: 20px;
+}
+
+.button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.button-logout {
+    background-color: #F44336;
+}

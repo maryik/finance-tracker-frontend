@@ -1,0 +1,201 @@
+.goals-container {
+    position: relative; /* Убедитесь, что контейнер позиционирован */
+    padding: 30px; /* Отступы вокруг содержимого */
+    background-color: #f9f9f9; /* Цвет фона контейнера */
+    border-radius: 8px; /* Скругление углов */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень */
+    width: 500px; /* Ширина контейнера */
+    /* height: 400px;  Если нужно увеличить высоту, раскомментируйте эту строку */
+}
+
+.goals-header {
+    display: flex;
+    justify-content: space-between; /* Разделение элементов */
+    align-items: center; /* Центрирование по вертикали */
+    margin-bottom: 20px; /* Отступ снизу */
+    margin-top: 30px;
+}
+
+.menu {
+    position: absolute; /* Позволяет разместить меню в левом верхнем углу */
+    top: 20px; /* Отступ сверху */
+    left: 20px; /* Отступ слева */
+}
+
+/* Стили кнопки добавления цели */
+.add-goal-button {
+    background-color: #4caf50; /* Зеленая кнопка */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: -100px;
+}
+
+.add-goal-button:hover {
+    background-color: #45a049; /* Темнее при наведении */
+}
+
+/* Стили сообщения об отсутствии целей */
+.no-goals-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+
+/* Стили списка целей */
+.goal-list {
+    max-height: 300px;
+    max-width: 800px; /* Задайте максимальную высоту для контейнера */
+    overflow-y: auto;  /* Добавьте вертикальную прокрутку */
+    margin: 0;         /* Убедитесь, что у списка нет отступов */
+    padding: 0;        /* Убедитесь, что у списка нет внутреннего отступа */
+    list-style-type: none; /* Уберите маркеры списка */
+}
+
+/* Стили элемента цели */
+.goal-item {
+    cursor: pointer;
+    display: flex; /* Используем флексбокс для выравнивания */
+    justify-content: space-between; /* Разделяем элементы */
+    align-items: center;
+    padding: 30px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd; /* Обводка */
+    border-radius: 5px; /* Скругленные углы */
+    background-color: #fff; /* Белый фон для элементов */
+    transition: background-color 0.3s;
+    padding: 10px; /* Добавьте отступы для удобства */
+    border-bottom: 1px solid #ccc; /* Добавьте разделитель между элементами */
+}
+
+/* Эффект наведения на элемент цели */
+.goal-item:hover {
+    background-color: #f0f0f0; /* Изменяем фон при наведении */
+}
+
+/* Стили заголовка цели */
+.goal-title {
+    text-align: center; /* Заголовок по центру */
+    flex-grow: 1; /* Занимает доступное пространство */
+}
+
+/* Стили цены цели */
+.goal-price {
+    font-weight: bold; /* Выделяем цену */
+    margin-right: 20px; /* Отступ справа */
+}
+
+/* Стили дедлайна */
+.goal-deadline {
+    margin-left: 20px; /* Отступ слева */
+}
+
+/* Стили для оставшегося времени */
+.remaining-time {
+    font-weight: bold; /* Жирный текст */
+    display: block; /* Новая строка */
+    margin-top: 10px; /* Отступ сверху */
+}
+
+/* Красный цвет для просроченных целей */
+.text-red {
+    color: red; /* Красный цвет для просроченных целей */
+}
+
+/* Стили для просроченных целей */
+.goal-item.expired {
+    background-color: #f5a9a9; /* Светло-красный фон для просроченных целей */
+    border: 1px solid #fd9b9b; /* Розовая обводка */
+}
+
+/* Стили для завершенной цели */
+.goal-item.completed {
+    background-color: #dff0d8; /* Светло-зеленый фон для завершенных целей */
+    border: 1px solid #d6e9c6; /* Зеленая обводка */
+    text-decoration: line-through; /* Зачеркивание текста */
+    color: gray;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 15px; /* Добавление отступа снизу для заголовка модального окна */
+}
+
+.modal-content input,
+.modal-content textarea {
+    width: calc(100% - 20px); /* Убираем отступы справа и слева */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.modal-content button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: #45a049;
+}
+
+.close {
+    cursor: pointer;
+    font-size: 20px;
+    color: #aaa;
+    float: right;
+}
+
+.close:hover {
+    color: black;
+}
+
+.goal-price {
+    font-weight: bold;
+}
+
+.goal-title {
+    margin-left: 10px;
+}
+
+.goal-deadline {
+    margin-left: 10px;
+    color: #555;
+    font-style: italic;
+}
+.text-red {
+    color: red;
+}
+

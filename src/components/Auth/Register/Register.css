@@ -1,0 +1,67 @@
+/* Стили для компонента Register */
+.register-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.register-title {
+    margin-bottom: 1rem;
+    font-size: 24px;
+    color: #333;
+}
+
+.register-form .form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    background-color: #68e16c;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #68e16c;
+}
+
+.register-message {
+    margin-top: 10px;
+    color: #f00;
+}
+
+.signup-message {
+    margin-top: 1rem;
+    color: #333;
+}
+
+.signup-message a {
+    color: #68e16c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup-message a:hover {
+    text-decoration: underline;
+}

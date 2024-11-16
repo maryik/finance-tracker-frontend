@@ -1,0 +1,64 @@
+.history-container {
+    padding: 50px;
+    max-height: 500px; /* Задаём максимальную высоту контейнера */
+    overflow-y: auto; /* Добавляем вертикальную прокрутку для всего контейнера */
+    background-color: #fff;
+    border: 1px solid #ccc; /* Добавим рамку для отделения от фона */
+    border-radius: 8px; /* Скругление углов контейнера */
+    display: flex; /* Используем flexbox для выравнивания */
+    flex-direction: column; /* Устанавливаем направление по колонкам */
+    position: relative; /* Позволяет абсолютному позиционированию дочерних элементов */
+}
+
+.transaction-title {
+    margin-top: -3px;
+    font-size: 18px;
+    color: #333;
+    text-align: center; /* Центрируем заголовок */
+}
+
+.transaction-list-container {
+    max-height: 300px; /* Задаем максимальную высоту для списка транзакций */
+    max-width: 800px;
+    overflow-y: auto; /* Добавляем вертикальную прокрутку */
+    margin-top: 10px; /* Отступ сверху для разделения с заголовком */
+}
+
+.transaction-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.transaction-item {
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 4px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+.transaction-item.expense {
+    background-color: #ffcccc;
+    color: #d32f2f;
+}
+
+.transaction-item.income {
+    background-color: #ccffcc;
+    color: #388e3c;
+}
+
+.transaction-amount, .transaction-title, .transaction-date {
+    margin-right: 10px;
+}
+
+.message {
+    color: #d32f2f; /* Цвет сообщения об ошибке */
+}
+
+.menu {
+    position: absolute; /* Абсолютное позиционирование для меню */
+    top: 10px; /* Отступ сверху */
+    left: 10px; /* Отступ слева */
+}
